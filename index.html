@@ -338,6 +338,7 @@
       <p>Ideale per coppie, famiglie o gruppi di amici.</p>
     </div>
   </div>
+  
   <!-- LA CASA -->
   <section class="section about" id="casa">
     <div class="section-inner">
@@ -357,7 +358,100 @@
         </div>
       </div>
     </div>
+    <div>
+      <!-- Pulsanti categoria -->
+      <div class="photo-tabs">
+        <button class="photo-tab active" onclick="mostraCategoria('esterni', this)">Esterni</button>
+        <button class="photo-tab" onclick="mostraCategoria('interni', this)">Interni</button>
+        <button class="photo-tab" onclick="mostraCategoria('camera', this)">Camera da letto</button>
+        <button class="photo-tab" onclick="mostraCategoria('bagno', this)">Bagno</button>
+      </div>
+ 
+      <!-- ESTERNI: 8 foto -->
+      <div class="carousel active" id="esterni">
+        <div class="carousel-slide active" data-index="0">esterno1.jpg</div>
+        <div class="carousel-slide" data-index="1">esterno2.jpg</div>
+        <div class="carousel-slide" data-index="2">esterno3.jpg</div>
+        <div class="carousel-slide" data-index="3">esterno4.jpg</div>
+        <div class="carousel-slide" data-index="4">esterno5.jpg</div>
+        <div class="carousel-slide" data-index="5">esterno6.jpg</div>
+        <div class="carousel-slide" data-index="6">esterno7.jpg</div>
+        <div class="carousel-slide" data-index="7">esterno8.jpg</div>
+        <button class="carousel-arrow prev" onclick="cambiaFoto('esterni', -1)">‹</button>
+        <button class="carousel-arrow next" onclick="cambiaFoto('esterni', 1)">›</button>
+        <div class="carousel-counter">1 / 8</div>
+      </div>
+ 
+      <!-- INTERNI: 7 foto -->
+      <div class="carousel" id="interni">
+        <div class="carousel-slide active" data-index="0">interno1.jpg</div>
+        <div class="carousel-slide" data-index="1">interno2.jpg</div>
+        <div class="carousel-slide" data-index="2">interno3.jpg</div>
+        <div class="carousel-slide" data-index="3">interno4.jpg</div>
+        <div class="carousel-slide" data-index="4">interno5.jpg</div>
+        <div class="carousel-slide" data-index="5">interno6.jpg</div>
+        <div class="carousel-slide" data-index="6">interno7.jpg</div>
+        <button class="carousel-arrow prev" onclick="cambiaFoto('interni', -1)">‹</button>
+        <button class="carousel-arrow next" onclick="cambiaFoto('interni', 1)">›</button>
+        <div class="carousel-counter">1 / 7</div>
+      </div>
+ 
+      <!-- CAMERA DA LETTO: 2 foto -->
+      <div class="carousel" id="camera">
+        <div class="carousel-slide active" data-index="0">camera1.jpg</div>
+        <div class="carousel-slide" data-index="1">camera2.jpg</div>
+        <button class="carousel-arrow prev" onclick="cambiaFoto('camera', -1)">‹</button>
+        <button class="carousel-arrow next" onclick="cambiaFoto('camera', 1)">›</button>
+        <div class="carousel-counter">1 / 2</div>
+      </div>
+ 
+      <!-- BAGNO: 2 foto -->
+      <div class="carousel" id="bagno">
+        <div class="carousel-slide active" data-index="0">bagno1.jpg</div>
+        <div class="carousel-slide" data-index="1">bagno2.jpg</div>
+        <button class="carousel-arrow prev" onclick="cambiaFoto('bagno', -1)">‹</button>
+        <button class="carousel-arrow next" onclick="cambiaFoto('bagno', 1)">›</button>
+        <div class="carousel-counter">1 / 2</div>
+      </div>
+      </div>
+      </div>
+    </div>
   </section>
+ 
+  <script>
+    function mostraCategoria(categoria, pulsanteCliccato) {
+      // Nascondi tutti i caroselli
+      document.querySelectorAll('.carousel').forEach(function(c) {
+        c.classList.remove('active');
+      });
+      // Mostra solo quello selezionato
+      document.getElementById(categoria).classList.add('active');
+ 
+      // Aggiorna lo stile dei pulsanti categoria
+      document.querySelectorAll('.photo-tab').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      pulsanteCliccato.classList.add('active');
+    }
+ 
+    function cambiaFoto(categoria, direzione) {
+      var carosello = document.getElementById(categoria);
+      var slide = carosello.querySelectorAll('.carousel-slide');
+      var totale = slide.length;
+      var indiceAttuale = 0;
+ 
+      slide.forEach(function(s, i) {
+        if (s.classList.contains('active')) indiceAttuale = i;
+      });
+ 
+      var nuovoIndice = (indiceAttuale + direzione + totale) % totale;
+ 
+      slide[indiceAttuale].classList.remove('active');
+      slide[nuovoIndice].classList.add('active');
+ 
+      carosello.querySelector('.carousel-counter').textContent = (nuovoIndice + 1) + ' / ' + totale;
+    }
+  </script>
 
   <!-- SERVIZI -->
   <section class="section amenities">
