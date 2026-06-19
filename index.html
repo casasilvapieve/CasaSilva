@@ -132,19 +132,66 @@
       color: var(--verde-chiaro); text-transform: uppercase; margin-bottom: 12px;
     }
     .section-title { font-size: 32px; color: var(--verde-scuro); margin-bottom: 24px; line-height: 1.2; }
- 
+    
     /* ── LA CASA ── */
     .about { background: var(--bianco); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
     .about-text p { font-size: 16px; color: var(--testo-light); line-height: 1.85; margin-bottom: 18px; }
-    .about-photo {
-      background: var(--beige-scuro); border-radius: 4px;
+ 
+    /* Carosello a categorie */
+    .photo-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .photo-tab {
+      font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 1px;
+      text-transform: uppercase; padding: 8px 16px;
+      border: 1px solid var(--beige-scuro); border-radius: 20px;
+      background: var(--beige); color: var(--testo-light);
+      cursor: pointer; transition: all .2s;
+    }
+    .photo-tab:hover { background: var(--beige-scuro); }
+    .photo-tab.active { background: var(--verde-scuro); color: #fff; border-color: var(--verde-scuro); }
+ 
+    .carousel {
+      display: none;
+      position: relative;
       aspect-ratio: 4/3;
-      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--beige-scuro);
+    }
+    .carousel.active { display: block; }
+    .carousel-slide {
+      display: none;
+      width: 100%; height: 100%;
+      background: var(--beige-scuro) center/cover no-repeat;
+      align-items: center; justify-content: center;
       color: var(--grigio-pietra);
-      font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 1px;
-      text-align: center; padding: 24px;
-      /* Sostituisci con: background-image: url('foto.jpg'); background-size: cover; */
+      font-family: Arial, sans-serif; font-size: 12px;
+      text-align: center; padding: 12px;
+      /* Sostituisci con: background-image: url('nomefoto.jpg'); */
+    }
+    .carousel-slide.active { display: flex; }
+    .carousel-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.85); border: none;
+      font-size: 16px; color: var(--verde-scuro);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .carousel-arrow:hover { background: #fff; }
+    .carousel-arrow.prev { left: 12px; }
+    .carousel-arrow.next { right: 12px; }
+    .carousel-counter {
+      position: absolute; bottom: 10px; right: 12px;
+      background: rgba(0,0,0,0.55); color: #fff;
+      font-family: Arial, sans-serif; font-size: 11px;
+      padding: 4px 10px; border-radius: 12px;
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
     }
  
     /* ── SERVIZI ── */
@@ -425,14 +472,14 @@
     <div class="section-inner">
       <div class="eyebrow">Prenota</div>
       <h2 class="section-title">Pianifica il tuo soggiorno</h2>
-      <p>Per disponibilità e informazioni, scrivici o chiamaci direttamente.</p>
+      <p>Per prenotazioni e informazioni, scrivici o chiamaci direttamente.</p>
       <a href="mailto:casasilva.pieve@gmail.com" class="btn-dark">Scrivici</a>
       <div class="contact-meta">
         oppure chiamaci al <a href="tel:+393404073179">+39 340 407 3179</a>
         &nbsp;·&nbsp;
         <a href="tel:+393386760674">+39 338 676 0674</a>
         <br><br>
-        in alternativa prenota direttamente tramite <a href="https://www.booking.com/hotel/it/casa-silva-pieve-tesino.it.html?aid=2311236&label=it-it-booking-desktop-new-https://www.booking.com/hotel/it/casa-silva-pieve-tesino.it.html?aid=2311236&label=it-it-booking-desktop-new-VRZD0IC5lt9Ulq%2AajTZ_bgS652828999642%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp9219087%3Ali%3Adec%3Adm&sid=c98d9bccf40546634853c1b931fdb6a2&all_sr_blocks=1660323801_437925007_2_0_0&checkin=2026-07-01&checkout=2026-07" target="_blank">Booking</a>
+        in alternativa prenota tramite <a href="https://www.booking.com/hotel/it/casa-silva-pieve-tesino.it.html?aid=2311236&label=it-it-booking-desktop-new-https://www.booking.com/hotel/it/casa-silva-pieve-tesino.it.html?aid=2311236&label=it-it-booking-desktop-new-VRZD0IC5lt9Ulq%2AajTZ_bgS652828999642%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp9219087%3Ali%3Adec%3Adm&sid=c98d9bccf40546634853c1b931fdb6a2&all_sr_blocks=1660323801_437925007_2_0_0&checkin=2026-07-01&checkout=2026-07" target="_blank">Booking</a>
       </div>
     </div>
   </section>
