@@ -35,6 +35,14 @@
       font-size: 22px; font-weight: 700; letter-spacing: 4px;
       color: #e8f8c0; text-decoration: none;
     }
+    .nav-center-logo { display: flex; justify-content: center; }
+    .nav-center-logo svg { width: 70px; height: 20px; display: block; }
+    .nav-links { display: flex; gap: 32px; justify-content: flex-end; }
+    .nav-links a {
+      font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 2px;
+      color: #ffffff; text-decoration: none; text-transform: uppercase;
+      transition: color .2s;
+    }
     .nav-links { display: flex; gap: 32px; }
     .nav-links a {
       font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 2px;
@@ -254,14 +262,42 @@
     }
     .contact-meta a { color: var(--verde-chiaro); text-decoration: none; }
 
-    /* ── FOOTER ── */
+   /* ── FOOTER ── */
+    /* ── FOOTER INFORMATIVO ── */
+    .info-footer {
+      background: var(--verde-scuro);
+      color: #ffffff;
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .info-footer-col { display: flex; flex-direction: column; gap: 10px; }
+    .info-footer-col.center { align-items: center; text-align: center; }
+    .info-footer-col.right { align-items: flex-end; text-align: right; }
+    .info-footer h4 {
+      font-family: Arial, sans-serif; font-size: 14px;
+      font-weight: 700; margin-bottom: 6px;
+    }
+    .info-footer p, .info-footer a {
+      font-family: Arial, sans-serif; font-size: 13px;
+      color: #ffffff; text-decoration: none; line-height: 1.6;
+    }
+    .info-footer a:hover { text-decoration: underline; }
+    .info-footer-logo svg { width: 180px; height: auto; }
+    @media (max-width: 768px) {
+      .info-footer { grid-template-columns: 1fr; text-align: center; }
+      .info-footer-col, .info-footer-col.right { align-items: center; text-align: center; }
+    }
+ 
     footer {
       background: #1a2410; color: #5a6a48;
       text-align: center; padding: 28px 48px;
       font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 1px;
     }
     footer span { color: #7a8a60; }
-
+    
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
@@ -280,6 +316,29 @@
    <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#">CASA SILVA</a>
+        <div class="nav-center-logo">
+      <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="80,180 200,80 320,180" fill="none"/>
+        <polygon points="108,200 6,250 134,250" fill="#ffffff" opacity="0"/>
+        <!-- alberi -->
+        <rect x="108" y="155" width="6" height="40" fill="#ffffff"/>
+        <polygon points="111,108 88,165 134,165" fill="#ffffff"/>
+        <polygon points="111,128 91,172 131,172" fill="#ffffff"/>
+        <rect x="538" y="150" width="7" height="45" fill="#ffffff"/>
+        <polygon points="541,98 516,160 566,160" fill="#ffffff"/>
+        <polygon points="541,120 519,168 563,168" fill="#ffffff"/>
+        <!-- casa -->
+        <rect x="255" y="125" width="170" height="70" rx="3" fill="#ffffff"/>
+        <polygon points="235,128 340,75 445,128" fill="#ffffff"/>
+        <rect x="375" y="80" width="14" height="28" rx="2" fill="#ffffff"/>
+        <!-- porta -->
+        <rect x="323" y="160" width="34" height="35" rx="3" fill="#cc7a29"/>
+        <!-- finestre -->
+        <rect x="275" y="132" width="24" height="16" rx="2" fill="#cc7a29"/>
+        <rect x="315" y="132" width="24" height="16" rx="2" fill="#cc7a29"/>
+        <rect x="385" y="132" width="24" height="16" rx="2" fill="#cc7a29"/>
+      </svg>
+    </div>
     <div class="nav-links">
       <a href="#casa">La casa</a>
       <a href="#dintorni">Dintorni</a>
