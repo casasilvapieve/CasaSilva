@@ -249,6 +249,21 @@
       color: #e8f0e0; text-decoration: none; transition: background .2s;
     }
     .link-pill:hover { background: #3a5a28; }
+
+    /* ── MAPPA ── */
+    .map-section { background: var(--beige); }
+    .map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .map-embed {
+      position: relative; width: 100%; aspect-ratio: 4/3;
+      border-radius: 6px; overflow: hidden;
+      border: 1px solid var(--beige-scuro);
+    }
+    .map-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .map-text p { font-size: 16px; color: var(--testo-light); line-height: 1.85; margin-bottom: 16px; }
+    .map-text .section-title { font-size: 22px; margin-bottom: 16px; }
+    @media (max-width: 768px) {
+      .map-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
     
     /* ── LOGO SVG INLINE ── */
     .logo-section { background: var(--beige); padding: 24px 48px; text-align: center; }
@@ -644,6 +659,31 @@
     </div>
   </section>
 
+    <!-- MAPPA -->
+  <section class="section map-section" id="mappa">
+    <div class="section-inner">
+      <div class="eyebrow">Mappe</div>
+      <h2 class="section-title" style="font-size:22px;">Come raggiungerci</h2>
+      <div class="map-grid">
+        <div class="map-embed">
+          <!-- Sostituisci il link "src" con quello del tuo paese da Google Maps:
+               Google Maps → cerca il paese → Condividi → Incorpora una mappa → copia il link "src" qui sotto -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5536.341931947236!2d11.604539595906513!3d46.06763208436072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477892b1ea0c33bb%3A0x3d3a36ceb1d59471!2s38050%20Pieve%20Tesino%20TN!5e0!3m2!1sit!2sit!4v1782207065038!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="map-text">
+          <p>Casa Silva si trova a pochi minuti dal centro del paese, in una posizione tranquilla e ben collegata. Dall'autostrada, segui le indicazioni per il comune e prosegui lungo la strada principale fino all'ingresso del vialetto privato.</p>
+          <p>Il paese offre tutto il necessario per la spesa quotidiana, ristoranti tipici e l'accesso ai principali sentieri escursionistici della zona. Il parcheggio è disponibile direttamente all'interno della proprietà.</p>
+          <p>Per chi arriva in treno, la stazione più vicina dista circa 20 minuti di auto; è possibile organizzare un transfer su richiesta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTATTI -->
   <section class="section contact" id="contatti">
     <div class="section-inner">
@@ -692,7 +732,8 @@
     </div>
 
       <div class="info-footer-col right">
-      <p></p>
+      <p>P. IVA:</p>
+      <p>CIN:</p>
     </div>
   </div>
 
